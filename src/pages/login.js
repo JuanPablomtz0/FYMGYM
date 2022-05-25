@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getDatabase, ref, set, get, child, push } from "firebase/database"
 
+import Banner from '../components/Banner';
 
 
 
@@ -39,6 +40,7 @@ const Login = () => {
 
   return (
     <div>
+      <Banner></Banner>
       <input
         type="text"
         placeholder="Name"

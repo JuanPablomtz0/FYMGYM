@@ -1,51 +1,47 @@
 import React, { useState } from "react";
 import { NavLink as Link } from "react-router-dom";
 import { getDatabase, ref, set, get, child } from "firebase/database";
-import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
-//import { createTransport } from "nodemailer";
-
-//var nodemailer = require('nodemailer');
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const ForgotPassword = () => {
     const [correo, setCorreo] = useState("");
 
-    const remind = (e) => {/*
-        e.preventDefault();
-        let transporter = createTransport({
-            service: 'gmail',
-            auth: {
-              user: 'fymgymtrainingcenter@gmail.com',
-              pass: 'TrainNow@FYM'
-            }
-          });
-        let mailOptions = {
-        from: 'fymgymtrainingcenter@gmail.com',
-        to: correo,
-        subject: 'Cuenta',
-        text: `Su contraseña es: `
-        };
-        
-        transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-        });*/
+    const remind = (e) => {
+        alert("Correo de recuperacion de cuenta enviado.")
+        window.location.href = '/';
     };
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Correo"
-                value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-            />
-            <button onClick={remind}>Enviar</button>
-            <Link to="/">
-              Cancelar
-            </Link>
+            <div className="banner">
+                <img src='./banner_1.jpg' />
+            </div>
+            <div className="login">
+                <div className="input">
+                    <h1>FYM GYM</h1>
+
+                    <p>Ingresa el correo electronico</p>
+                    <input
+                        type="text"
+                        placeholder="correo electronico"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value)}
+                    />
+                    <br>
+                    </br>
+                    <br>
+                    </br>
+                    <div className="link">
+                        <Link to="/">
+                            Cancelar
+                        </Link>
+                    </div>
+                    <br>
+                    </br>
+                    <button onClick={remind}>Enviar</button>
+                </div>
+
+            </div>
         </div>
     );
 };

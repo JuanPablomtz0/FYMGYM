@@ -48,17 +48,15 @@
   padding-right: 5%;
 }
 
+.navbar img{
+  width: 10%;
+}
 .accountIcon{
   width: 10%;
 }
 
 .logo{
   width: 90%;
-}
-
-img{
-  width: 200px;
-  padding: 20px;
 }
 
 .sidebar{
@@ -105,4 +103,56 @@ img{
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.banner {
+  
+  height: 100vh;
+  float: left;
+}
+
+.banner img{
+  height: 100%;
+}
+
+.login {
+  width: 70%;
+  float: left;
+}
+
+.input{
+  margin: 10%;
+  font-size: xx-large;
+}
+
+.input p{
+  font-size: large;
+  margin-bottom: 5%;
+}
+
+.input button{
+  margin-left:25%;
+  margin-top: 10%;
+  float: left;
+  font-size: xx-large;
+  background-color: rgb(155, 187, 207);
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-color: rgb(155, 187, 207);
+}
+
+.link{
+  font-size: large;
+  width: auto;
+}
+
+.input input{
+  width: 50%;
+  font-size: x-large;
+  background-color: rgb(192, 208, 217);
+  border-radius: 10px;
+  border-color: rgb(192, 208, 217);
+  -webkit-text-security: circle;
+  padding-left: 2%;
 }

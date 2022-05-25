@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NavLink as Link } from "react-router-dom"; 
+import { NavLink as Link } from "react-router-dom";
 import { getDatabase, ref, set, get, child } from "firebase/database";
-import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 
 const Index = () => {
@@ -18,29 +18,55 @@ const Index = () => {
                 window.location.href = '/createUser';
             })
             .catch(error => {
-              console.log(error.message);
+                console.log(error.message);
+                alert("Correo o contraseña incorrecta");
+                setCustomerPassword("");
+
             });
-        
+
     };
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Name"
-                value={correo}
-                onChange={(e) => setCustomerName(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Password"
-                value={cuentaPassword}
-                onChange={(e) => setCustomerPassword(e.target.value)}
-            />
-            <button onClick={login}>Login</button>
-            <Link to="/forgotPassword">
-              Recordar Contraseña
-            </Link>
+            <div className="banner">
+                <img src='./banner_1.jpg' />
+            </div>
+            <div className="login">
+                <div className="input">
+                    <h1>FYM GYM</h1>
+
+                    <p>Hola, inicia sesion</p>
+                    <input
+                        type="text"
+                        placeholder="correo electronico"
+                        value={correo}
+                        onChange={(e) => setCustomerName(e.target.value)}
+                    />
+                    <br>
+                    </br>
+                    <br>
+                    </br>
+                    <input
+                        type="password"
+                        placeholder="contraseña"
+                        value={cuentaPassword}
+                        onChange={(e) => setCustomerPassword(e.target.value)}
+                    />
+                    <br>
+                    </br>
+                    <br>
+                    </br>
+                    <div className="link">
+                        <Link to="/forgotPassword">
+                            ¿Olvidaste tu contraseña?
+                        </Link>
+                    </div>
+                    <br>
+                    </br>
+                    <button onClick={login}>Iniciar sesion</button>
+                </div>
+                    
+            </div>
         </div>
     );
 };
