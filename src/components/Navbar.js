@@ -10,16 +10,14 @@ const Navbar = () => {
     window.location.href = '/';
 };
   return (
-    <>
-      <div className='navbar'>
-        <div className='logo'>
-          <img src='./gym2.png'></img>
-        </div>
-        <div classname='logout'>
-          <button onClick={logout}>Logout</button>
-        </div>
+    <div className='navbar'>
+      <div className='logo'>
+        <img src='./logo.png'></img>
       </div>
-    </>
+      <div className='logout'>
+        <button onClick={logout}>Logout</button>
+      </div>
+    </div>
   );
 };
   
