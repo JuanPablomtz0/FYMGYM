@@ -3,8 +3,6 @@ import { getDatabase, ref, set, get, child, push } from "firebase/database"
 
 import Banner from '../components/Banner';
 
-
-
 function writeUserData(/*userId,*/ name, email/*, imageUrl*/) {
   const db = getDatabase();
   set(push(ref(db, 'usuario/')),{

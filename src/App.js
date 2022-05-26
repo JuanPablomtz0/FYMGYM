@@ -22,6 +22,14 @@ const theme = extendTheme({
       	fontSize: '55px',
       	fontWeight: '700',
       },
+      h2: {
+        color: "#143939",
+        fontSize: '55px',
+        fontWeight: '700',
+        paddingLeft: '10vh',
+      },
+      img: {
+      },
       p: {
       	color: "#1e5555",
       },
