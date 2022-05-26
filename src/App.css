@@ -106,7 +106,6 @@
 }
 
 .banner {
-  
   height: 100vh;
   float: left;
 }
@@ -116,7 +115,7 @@
 }
 
 .login {
-  width: 70%;
+  width: 60%;
   float: left;
 }
 
@@ -126,15 +125,16 @@
 }
 
 .input p{
-  font-size: large;
-  margin-bottom: 5%;
+  font-size: 75%;
+  font-weight: '600';
+  margin-bottom: 2%;
 }
 
 .input button{
-  margin-left:25%;
-  margin-top: 10%;
+  margin-left:20%;
   float: left;
-  font-size: xx-large;
+  font-size: 60%;
+  width: 30%;
   background-color: rgb(155, 187, 207);
   border-radius: 10px;
   padding-left: 5%;
