@@ -1,7 +1,7 @@
 const Banner = () => {
     return(
-        <div className="banner">
-            <img src='./banners/banner_13.jpg'/>
+        <div>
+            <img src='./banner_1.jpg'/>
         </div>
     )
 }
