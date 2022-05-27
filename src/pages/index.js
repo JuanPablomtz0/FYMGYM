@@ -3,10 +3,11 @@ import { NavLink as Link } from "react-router-dom";
 import { getDatabase, ref, set, get, child } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+import { Button } from '@chakra-ui/react'
 
 const Index = () => {
     const [correo, setCustomerName] = useState("");
-    const [cuentaPassword, setCustomerPassword] = useState("");
+    const [cuentaPassword, setCustomerPassword] = useState("");  
 
     const login = (e) => {
         e.preventDefault();
@@ -27,45 +28,40 @@ const Index = () => {
     };
 
     return (
-        <div>
+        <div className="indexContainer">
             <div className="banner">
-                <img src='./banner_1.jpg' />
+                <img src='./banners/banner_15.jpg' />
             </div>
             <div className="login">
                 <div className="input">
+                    <br></br>
                     <h1>FYM GYM</h1>
-
-                    <p>Hola, inicia sesion</p>
+                    <hr></hr>
+                    <p>Hola, inicia sesión:</p>
                     <input
                         type="text"
                         placeholder="correo electronico"
                         value={correo}
                         onChange={(e) => setCustomerName(e.target.value)}
                     />
-                    <br>
-                    </br>
-                    <br>
-                    </br>
+                    <br></br>
+                    <br></br>
                     <input
+                        id="myInput"
                         type="password"
                         placeholder="contraseña"
                         value={cuentaPassword}
                         onChange={(e) => setCustomerPassword(e.target.value)}
                     />
-                    <br>
-                    </br>
-                    <br>
-                    </br>
+                    <br></br><hr></hr>
                     <div className="link">
                         <Link to="/forgotPassword">
                             ¿Olvidaste tu contraseña?
                         </Link>
                     </div>
-                    <br>
-                    </br>
-                    <button onClick={login}>Iniciar sesion</button>
+                    <br></br>
+                    <Button id="myBtn" onClick={login}>Iniciar sesión </Button>
                 </div>
-                    
             </div>
         </div>
     );

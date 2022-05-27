@@ -38,19 +38,22 @@
 }
 
 .navbar{
+  background-image: linear-gradient(to right, rgb(34, 34, 33) , rgb(34, 34, 33));
   width: 100%;
   display: flex;
-  height: 20vh;
+  align-items: center;
+  height: 18vh;
   float: left;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding-right: 5%;
+}
+
+.title h1{
+  width: 50vh;
 }
 
 .navbar img{
-  width: 150px;
-  margin-left: 50px;
-  margin-top: 30px;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  height: auto;
 }
 .accountIcon{
   width: 250px;
@@ -58,24 +61,18 @@
 
 .logo{
   width: 15%;
-  background-color: rgb(121, 167, 235);
 }
 
 .logout{
-  background-image: linear-gradient(to right, rgb(121, 167, 235) , rgb(241, 245, 251));
   width: 85%;
 }
 
 .logout button{
-  margin: 40px;
-  margin-top: 60px;
-  font-size: xx-large;
-  background-color: rgb(255, 255, 255);
+  margin: 5vh;
+  height: 10vh;
+  width: 15vh;
   border-radius: 10px;
-  padding-left: 5%;
-  padding-right: 5%;
   float: right;
-  border-color: rgb(255, 255, 255);
 }
 
 .sidebar{
@@ -87,17 +84,12 @@
   width: 100%;
 }
 
-.dropup :hover{
-  background-color: aliceblue;
-  width: 100%;
-}
-
 .sideArea{
   float: left;
-  background-image: linear-gradient(to bottom, rgb(121, 167, 235) , rgb(255, 255, 255));
+  background-image: linear-gradient(to bottom, rgb(34, 34, 33) , rgb(56, 57, 55));
   height: 80vh;
   font-size:xx-large;
-  width: 300px;
+  width: 30vh;
 }
 
 .viewArea{
@@ -118,6 +110,17 @@
   display: none;
 }
 
+.sidebarElem{
+  width: 30vh;
+  font-size: 4vh;
+  padding-left: 3vh;
+  margin-bottom: 3vh;
+  background-color: rgba(1, 1, 1, 0.005);
+}
+
+.sidebarElem:hover{
+  background-color: rgba(1, 1, 1, 0.1);
+}
 
 .form-control input {
   width: 20%;
@@ -128,7 +131,6 @@
 }
 
 .banner {
-  
   height: 100vh;
   float: left;
 }
@@ -138,7 +140,7 @@
 }
 
 .login {
-  width: 70%;
+  width: 60%;
   float: left;
 }
 
@@ -148,20 +150,31 @@
 }
 
 .input p{
-  font-size: large;
+  color: white;
+  font-weight: 600;
+  font-size: x-large;
   margin-bottom: 5%;
 }
 
-.input button{
-  margin-left:25%;
-  margin-top: 10%;
-  float: left;
-  font-size: xx-large;
-  background-color: rgb(155, 187, 207);
-  border-radius: 10px;
-  padding-left: 5%;
-  padding-right: 5%;
-  border-color: rgb(155, 187, 207);
+
+.input Button{
+  background-color: gray;
+  float: right;
+  margin-right: 49vh;
+}
+
+.form Button{
+  background-color: "#8b8e89";
+  float: right;
+  margin-right: 49vh;  
+}
+
+.form h3{
+  font-size: 2.5vh;
+}
+
+.form .input input{
+
 }
 
 .link{
@@ -172,11 +185,18 @@
 .input input{
   width: 50%;
   font-size: x-large;
-  background-color: rgb(192, 208, 217);
+  background-color: rgb(112, 114, 110);
+  color: rgb(209, 210, 208);
   border-radius: 10px;
-  border-color: rgb(192, 208, 217);
+  border-color: rgb(128, 187, 9);
   -webkit-text-security: circle;
   padding-left: 2%;
+  margin-bottom: 1vh;
+}
+
+.input input::placeholder{
+  color: rgb(209, 210, 208);
+  font-size: 3vh;
 }
 
 
@@ -190,7 +210,7 @@
 .dropup-content {
   display: none;
   position: absolute;
-  left: 300px;
+  left: 30vh;
   top: 0px;
   background-color: #f1f1f1;
   min-width: 200px;
@@ -252,13 +272,22 @@
 }
 
 .form {
-  margin-left: 60px;
+  margin: 5vh;
   float: left;
 }
 
+table{
+  background-color: gray;
+}
+
 .form img{
-  width: 300px;
-  margin: 50px;
+  width: 40vh;
+  margin-left: 5vh;
+}
+
+.form Button{
+  height: 8vh;
+  width: 40vh;
 }
 
 .form .input{
@@ -267,9 +296,9 @@
 }
 
 .form .input input{
-  width: 300px;
+  width: 40vh;
   font-size: large;
-  background-color: rgb(192, 208, 217);
+  background-color: "#383937";
   border-radius: 10px;
   border-color: rgb(192, 208, 217);
   -webkit-text-security: circle;
@@ -277,36 +306,31 @@
   display: flex;
 }
 
-.form button{
-  margin: 40px;
-  margin-top: 10px;
-  font-size: xx-large;
+.form Button{
+  margin: 5vh;
+  margin-top: 0vh;
+  font-size: large;
   background-color: rgb(155, 187, 207);
-  border-radius: 10px;
-  padding-left: 5%;
-  padding-right: 5%;
-  border-color: rgb(155, 187, 207);
 }
 
 .form select{
   font-size: medium;
-  background-color: rgb(192, 208, 217);
+  background-color: "#8b8e89";
   border-radius: 10px;
   border-color: rgb(192, 208, 217);
 }
 
 .form option{
   font-size: medium;
-  background-color: rgb(155, 187, 207);
+  background-color: "#8b8e89";
   border-radius: 10px;
   border-color: rgb(155, 187, 207);
 }
 
 .listUsers{
-  margin: 50px;
+  width: 100%;
   font-size: medium;
-  background-color: rgb(192, 208, 217);
-  border-radius: 10px;
+  border-radius: 5px;
   border-color: rgb(192, 208, 217);
 }
 
@@ -366,6 +390,9 @@ input:checked + .slider {
   background-color: #2196F3;
 }
 
+input:focus {
+}
+
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
@@ -383,4 +410,12 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.input input {
+  background-color: "#383937";
+}
+
+Button {
+  backgroundColor: "#8b8e89",
 }

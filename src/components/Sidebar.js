@@ -1,8 +1,5 @@
 import { NavLink as Link } from "react-router-dom";
 
-
-
-
 const Sidebar = () => {
     const user = () => {
         window.location.href = '/createUser';
@@ -19,7 +16,7 @@ const Sidebar = () => {
     return (
         <div className='sideArea'>
             <div className="dropup">
-                <div className='sidebar'>
+                <div className="sidebarElem">
                     <h3>
                         Usuarios
                     </h3>
@@ -30,7 +27,7 @@ const Sidebar = () => {
                     </div>
                 </div>
             </div>
-            <div className='sidebar'>
+            <div className="sidebarElem">
                 <h3>
                     Pagos
                 </h3>

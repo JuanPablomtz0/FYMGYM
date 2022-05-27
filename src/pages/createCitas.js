@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { getDatabase, ref, set, get, child, push } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import { Select, Button, Input } from '@chakra-ui/react'
+
 import Navbar from '../components/Navbar';
 import Sidebar from "../components/Sidebar";
 
@@ -46,7 +48,7 @@ const CreateCita = () => {
             <div className="form">
                 <div className="input">
                     <h3>
-                        Correo de socio
+                        Correo de socio:
                     </h3>
                     <input
                         type="text"
@@ -54,7 +56,7 @@ const CreateCita = () => {
                         value={correo}
                         onChange={(e) => setCorrero(e.target.value)} />
                     <h3>
-                        Fecha de la cita
+                        Fecha de la cita:
                     </h3>
                     <input
                         type="date"
@@ -62,7 +64,7 @@ const CreateCita = () => {
                         value={fecha}
                         onChange={(e) => setFecha(e.target.value)} />
                     <h3>
-                        Hora
+                        Hora: 
                     </h3>
                     <select
                         type="number"
@@ -112,7 +114,7 @@ const CreateCita = () => {
                         <option value="PM">PM</option>
                     </select>
                     <h3>
-                        Grupo muscular
+                        Grupo muscular: 
                     </h3>   
                     <select
                         type="text"
@@ -120,7 +122,7 @@ const CreateCita = () => {
                         value={musculo}
                         onChange={(e) => setMusculo(e.target.value)}>
                         <option value="pecho">Pecho</option>
-                        <option value="hombro">Hombre</option>
+                        <option value="hombro">Hombro</option>
                         <option value="brazo">Brazo</option>
                         <option value="espalda">Espalda</option>
                     </select>
@@ -128,9 +130,9 @@ const CreateCita = () => {
                 </div>
             </div>
             <div className="form">
-                    <img src="./mus.PNG"></img>
+                    <img src="./mus.jpg"></img>
                 <div className="input">
-                    <button onClick={signUp}>Agendar cita</button>
+                    <Button onClick={signUp}>Agendar cita</Button>
                 </div>
             </div>
         </>

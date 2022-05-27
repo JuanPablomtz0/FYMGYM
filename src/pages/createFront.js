@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { getDatabase, ref, set, get, child, push } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import { Select, Button } from '@chakra-ui/react'
+
 import Navbar from '../components/Navbar';
 import Sidebar from "../components/Sidebar";
 
@@ -75,20 +77,19 @@ const CreateFront = () => {
         <><Navbar />
             <Sidebar></Sidebar>
             <div className="form">
-                <div className="dropup">
+                <br></br>
+                <div>
                     <div>
-                        <h1>
-                            Tipo de usuario ◄
-                        </h1>
-                        <div className="droptype-content">
-                            <h4 onClick={user}>Socio</h4>
-                            <h4 onClick={front}>Frontdesk</h4>
-                        </div>
+                        <Select placeholder='Tipo de usuario'>
+                            <option onClick={user} value='socio'>Socio</option>
+                            <option onClick={front} value='frontdesk'>Frontdesk</option>
+                        </Select>
                     </div>
+                    <br></br>
                 </div>
                 <div className="input">
                     <h3>
-                        Nombre (s)
+                        Nombre(s)
                     </h3>
                     <input
                         type="text"
@@ -96,7 +97,7 @@ const CreateFront = () => {
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)} />
                     <h3>
-                        Apellido Paterno
+                        Apellido paterno
                     </h3>
                     <input
                         type="text"
@@ -104,7 +105,7 @@ const CreateFront = () => {
                         value={apellidoPaterno}
                         onChange={(e) => setApellidoPaterno(e.target.value)} />
                     <h3>
-                        Apellido maternoa
+                        Apellido materno
                     </h3>
                     <input
                         type="text"
@@ -146,7 +147,10 @@ const CreateFront = () => {
                 </div>
             </div>
             <div className="form">
-
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <div className="input">
                     <h3>
                         Sexo
@@ -164,7 +168,7 @@ const CreateFront = () => {
             </div>
             <div className="form">
                 <img src="./giga.PNG"></img>
-                <button onClick={signUp}>Registrar Usuario</button>
+                <Button onClick={signUp}>Registrar usuario</Button>
             </div>
 
         </>

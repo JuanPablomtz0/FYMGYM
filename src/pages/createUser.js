@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { getDatabase, ref, set, get, child, push } from "firebase/database";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import { Select, Button } from '@chakra-ui/react'
+
 import Navbar from '../components/Navbar';
 import Sidebar from "../components/Sidebar";
 
@@ -85,20 +87,19 @@ const CreateUser = () => {
         <><Navbar />
             <Sidebar></Sidebar>
             <div className="form">
-                <div className="dropup">
+                <br></br>
+                <div>
                     <div>
-                        <h1>
-                            Tipo de usuario ◄
-                        </h1>
-                        <div className="droptype-content">
-                            <h4 onClick={user}>Socio</h4>
-                            <h4 onClick={front}>Frontdesk</h4>
-                        </div>
+                        <Select placeholder='Tipo de usuario'>
+                            <option onClick={user} value='socio'>Socio</option>
+                            <option onClick={front} value='frontdesk'>Frontdesk</option>
+                        </Select>
                     </div>
                 </div>
                 <div className="input">
+                    <br></br>
                     <h3>
-                        Nombre (s)
+                        Nombre(s)
                     </h3>
                     <input
                         type="text"
@@ -106,19 +107,19 @@ const CreateUser = () => {
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)} />
                     <h3>
-                        Apellido Paterno
+                        Apellido paterno
                     </h3>
                     <input
                         type="text"
-                        placeholder="Apellido Paterno"
+                        placeholder="Apellido paterno"
                         value={apellidoPaterno}
                         onChange={(e) => setApellidoPaterno(e.target.value)} />
                     <h3>
-                        Apellido maternoa
+                        Apellido materno
                     </h3>
                     <input
                         type="text"
-                        placeholder="Apellido Materno"
+                        placeholder="Apellido materno"
                         value={apellidoMaterno}
                         onChange={(e) => setApellidoMaterno(e.target.value)} />
                     <h3>
@@ -156,7 +157,10 @@ const CreateUser = () => {
                 </div>
             </div>
             <div className="form">
-
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <div className="input">
                     <h3>
                         Sexo
@@ -175,26 +179,23 @@ const CreateUser = () => {
                     </h3>
                     <select
                         type="text"
-                        placeholder="Premium"
+                        placeholder="Regular"
                         value={membresia}
                         onChange={(e) => setMembresia(e.target.value)}>
-                        <option value="Premium">Premium</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Platinum">Platinum</option>
-                        <option value="Double Platinum">Double Platinum</option>
-                        <option value="Black Gold">Black Gold</option>
-                        <option value="Double Black Gold">Double Black Gold</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Preferencial">Preferencial</option>
+                        <option value="PLUS">PLUS</option>
+                        <option value="VIP">VIP</option>
                     </select>
                     <h3>
-                        Interes (instructor)
+                        ¿Desea contar con instructores?
                     </h3>
                     <label className="switch">
                         <input type="checkbox"/>
                         <span className="slider round"></span>
                     </label>
                     <h3>
-                        Referido por
+                        Referido por:
                     </h3>
                     <input
                         type="text"
@@ -202,14 +203,14 @@ const CreateUser = () => {
                         value={referido}
                         onChange={(e) => setReferido(e.target.value)} />
                     <h3>
-                        Tiempo de antelacion
+                        Tiempo de antelación de notificaciones:
                     </h3>
                     <select
                         type="number"
                         placeholder="00"
                         value={hora}
                         onChange={(e) => setHora(e.target.value)}>
-                        <option value="1">00</option>
+                        <option value="0">00</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -253,8 +254,8 @@ const CreateUser = () => {
                 </div>
             </div>
             <div className="form">
-                <img src="./giga.PNG"></img>
-                <button onClick={signUp}>Registrar Usuario</button>
+                <img src="./giga.PNG"></img><br></br>
+                <Button onClick={signUp}>Registrar usuario</Button>
             </div>
         </>
     );
