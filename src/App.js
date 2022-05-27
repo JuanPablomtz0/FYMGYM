@@ -6,10 +6,10 @@ import { ColorModeScript } from '@chakra-ui/react'
 import { extendTheme } from "@chakra-ui/react"
     
 import Index from './pages';
-import Login from './pages/login';
 import Landing from './pages/landing';
 import Register from './pages/register';
 import CreateUser from './pages/createUser';
+import CreateFront from './pages/createFront';
 import ForgotPassword from './pages/forgotPassword';
 import Testing from './pages/testing'
 

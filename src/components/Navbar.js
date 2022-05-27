@@ -23,6 +23,9 @@ const Navbar = () => {
             <img id="account" src="./profile.png"></img>
           </div>
       </div>
+      <div className='logout'>
+        <button onClick={logout}>Logout</button>
+      </div>
     </>
   );
 };
