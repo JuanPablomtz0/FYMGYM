@@ -5,9 +5,10 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Navbar from '../components/Navbar';
 import Sidebar from "../components/Sidebar";
 
-const Register = () => {
+const ViewUser = () => {
     const auth = getAuth();
     auth.onAuthStateChanged(user => {
+        retrieve();
         if (user) {
             console.log(user.email + " is logged in!");
         } else {
@@ -15,13 +16,20 @@ const Register = () => {
             window.location.href = '/';
         }
     });
-    
+
     const retrieve = () => {
         const db = getDatabase();
         get(ref(db, 'usuario/')).then((snapshot) =>{
             if (snapshot.exists()) {
+                var tableHTML = "<tr>";
+                tableHTML += "<th>" + "Nombre" + "</th>";
+                tableHTML += "<th>" + "Correo" + "</th>";
+                tableHTML += "<th>" + "Membresia" + "</th>";
+                tableHTML += "<th>" + "Fecha Corte" + "</th>";
+                tableHTML += "<th>" + "Telefono" + "</th>";
+                document.getElementById("table").innerHTML = tableHTML;
                 snapshot.forEach(element => {
-                    console.log(element.val())
+                    updateTable(element.val())
                 });
               } else {
                 console.log("No data available");
@@ -33,7 +41,7 @@ const Register = () => {
         get(ref(db, 'front')).then((snapshot) =>{
             if (snapshot.exists()) {
                 snapshot.forEach(element => {
-                    console.log(element.val().correo)
+                    console.log("front")
                 });
                 } else {
                 console.log("No data available");
@@ -43,20 +51,25 @@ const Register = () => {
             });
     };
 
-    const user = () => {
-        window.location.href = '/createUser';
-    }
-
-    const front = () => {
-        window.location.href = '/createFront';
+    const updateTable = (jsonData) => {
+        var tableHTML = "<tr>";
+        tableHTML += "<td>" + jsonData.nombre + "</td>";
+        tableHTML += "<td>" + jsonData.correo + "</td>";
+        tableHTML += "<td>" + jsonData.membresia + "</td>";
+        tableHTML += "<td>" + jsonData.fechaIngreso + "</td>";
+        tableHTML += "<td>" + jsonData.telefono + "</td>";
+        tableHTML += "</tr>";
+        document.getElementById("table").innerHTML += tableHTML;
     }
 
     return (
         <><Navbar />
             <Sidebar></Sidebar>
-            <button onClick={retrieve}>Registrar Usuario</button>
+            <div className="form">
+                <table className="listUsers" id="table"/>
+            </div>
         </>
     );
 };
 
-export default Register;
+export default ViewUser;

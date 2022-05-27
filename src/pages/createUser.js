@@ -16,23 +16,6 @@ const CreateUser = () => {
         }
     });
 
-    const check = (e) => {
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if (user !== null) {
-            user.providerData.forEach((profile) => {
-                console.log("Sign-in provider: " + profile.providerId);
-                console.log("  Provider-specific UID: " + profile.uid);
-                console.log("  Name: " + profile.displayName);
-                console.log("  Email: " + profile.email);
-                console.log("  Photo URL: " + profile.photoURL);
-            });
-        }
-        else {
-            console.log("signed-out");
-        }
-    };
-
     const [nombre, setNombre] = useState("");
     const [apellidoPaterno, setApellidoPaterno] = useState("");
     const [apellidoMaterno, setApellidoMaterno] = useState("");
@@ -41,16 +24,17 @@ const CreateUser = () => {
     const [direccion, setDireccion] = useState("");
     const [dob, setDOB] = useState("");
     const [genero, setGenero] = useState("");
-    
+    const [membresia, setMembresia] = useState("");
+    const [referido, setReferido] = useState("");
+    const [hora, setHora] = useState("");
+    const [minuto, setMinuto] = useState("");
+    const [corte, setCorte] = useState("");
 
     const signUp = (e) => {
         e.preventDefault();
         const auth = getAuth();
         const cuentaPassword = "password";
-        let today = new Date();
-        today = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
         createUserWithEmailAndPassword(auth, correo, cuentaPassword).then(cred => {
-            alert("cuenta creada");
             const db = getDatabase();
             set(push(ref(db, 'usuario/')), {
                 nombre: nombre,
@@ -61,8 +45,13 @@ const CreateUser = () => {
                 telefono: telefono,
                 direccion: direccion,
                 dob: dob,
-                fechaIngreso: today,
-                genero: genero
+                fechaIngreso: corte,
+                genero: genero,
+                membresia: membresia,
+                referido: referido,
+                hora: hora,
+                minuto: minuto,
+                tipo: "Socio"
             });
             setNombre("");
             setApellidoMaterno("");
@@ -72,6 +61,15 @@ const CreateUser = () => {
             setDireccion("");
             setDOB("");
             setGenero("");
+            setMembresia("");
+            setReferido("");
+            setHora("");
+            setMinuto("");
+            setCorte("");
+            alert("cuenta creada");
+        }).catch((error) => {
+            alert("cuenta no creada");
+            console.error(error);
         });
     };
 
@@ -165,7 +163,7 @@ const CreateUser = () => {
                     </h3>
                     <select
                         type="text"
-                        placeholder="Genero"
+                        placeholder="Otro"
                         value={genero}
                         onChange={(e) => setGenero(e.target.value)}>
                         <option value="Hombre">Hombre</option>
@@ -178,8 +176,8 @@ const CreateUser = () => {
                     <select
                         type="text"
                         placeholder="Premium"
-                        value={genero}
-                        onChange={(e) => setGenero(e.target.value)}>
+                        value={membresia}
+                        onChange={(e) => setMembresia(e.target.value)}>
                         <option value="Premium">Premium</option>
                         <option value="Silver">Silver</option>
                         <option value="Gold">Gold</option>
@@ -191,9 +189,9 @@ const CreateUser = () => {
                     <h3>
                         Interes (instructor)
                     </h3>
-                    <label class="switch">
+                    <label className="switch">
                         <input type="checkbox"/>
-                        <span class="slider round"></span>
+                        <span className="slider round"></span>
                     </label>
                     <h3>
                         Referido por
@@ -201,16 +199,16 @@ const CreateUser = () => {
                     <input
                         type="text"
                         placeholder="Referido"
-                        value={direccion}
-                        onChange={(e) => setDireccion(e.target.value)} />
+                        value={referido}
+                        onChange={(e) => setReferido(e.target.value)} />
                     <h3>
                         Tiempo de antelacion
                     </h3>
                     <select
                         type="number"
                         placeholder="00"
-                        value={genero}
-                        onChange={(e) => setGenero(e.target.value)}>
+                        value={hora}
+                        onChange={(e) => setHora(e.target.value)}>
                         <option value="1">00</option>
                         <option value="1">01</option>
                         <option value="2">02</option>
@@ -229,20 +227,20 @@ const CreateUser = () => {
                     <select
                         type="text"
                         placeholder="00"
-                        value={genero}
-                        onChange={(e) => setGenero(e.target.value)}>
-                        <option value="1">00</option>
-                        <option value="1">05</option>
-                        <option value="2">10</option>
-                        <option value="3">15</option>
-                        <option value="4">20</option>
-                        <option value="5">25</option>
-                        <option value="6">30</option>
-                        <option value="7">35</option>
-                        <option value="8">40</option>
-                        <option value="9">45</option>
-                        <option value="10">50</option>
-                        <option value="11">55</option>
+                        value={minuto}
+                        onChange={(e) => setMinuto(e.target.value)}>
+                        <option value="00">00</option>
+                        <option value="05">05</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
                     </select>
                     <h3>
                         Fecha de ingreso y fecha de corte
@@ -250,15 +248,14 @@ const CreateUser = () => {
                     <input
                         type="date"
                         placeholder=""
-                        value={dob}
-                        onChange={(e) => setDOB(e.target.value)} />
+                        value={corte}
+                        onChange={(e) => setCorte(e.target.value)} />
                 </div>
             </div>
             <div className="form">
                 <img src="./giga.PNG"></img>
                 <button onClick={signUp}>Registrar Usuario</button>
             </div>
-
         </>
     );
 };

@@ -302,6 +302,27 @@
   border-color: rgb(155, 187, 207);
 }
 
+.listUsers{
+  margin: 50px;
+  font-size: medium;
+  background-color: rgb(192, 208, 217);
+  border-radius: 10px;
+  border-color: rgb(192, 208, 217);
+}
+
+.listUsers th{
+  font-size: x-large;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-width: 10px;
+}
+
+.listUsers td{
+  font-size: large;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .switch {
   position: relative;
   display: inline-block;

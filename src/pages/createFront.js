@@ -16,23 +16,6 @@ const CreateFront = () => {
         }
     });
 
-    const check = (e) => {
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if (user !== null) {
-            user.providerData.forEach((profile) => {
-                console.log("Sign-in provider: " + profile.providerId);
-                console.log("  Provider-specific UID: " + profile.uid);
-                console.log("  Name: " + profile.displayName);
-                console.log("  Email: " + profile.email);
-                console.log("  Photo URL: " + profile.photoURL);
-            });
-        }
-        else {
-            console.log("signed-out");
-        }
-    };
-
     const [nombre, setNombre] = useState("");
     const [apellidoPaterno, setApellidoPaterno] = useState("");
     const [apellidoMaterno, setApellidoMaterno] = useState("");
@@ -44,13 +27,14 @@ const CreateFront = () => {
     
 
     const signUp = (e) => {
+        if(genero==="")
+            setGenero("Hombre");
         e.preventDefault();
         const auth = getAuth();
         const cuentaPassword = "password";
         let today = new Date();
         today = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
         createUserWithEmailAndPassword(auth, correo, cuentaPassword).then(cred => {
-            alert("cuenta creada");
             const db = getDatabase();
             set(push(ref(db, 'front/')), {
                 nombre: nombre,
@@ -72,6 +56,10 @@ const CreateFront = () => {
             setDireccion("");
             setDOB("");
             setGenero("");
+            alert("cuenta creada");
+        }).catch((error) => {
+            alert("cuenta no creada");
+            console.error(error);
         });
     };
 
@@ -167,7 +155,7 @@ const CreateFront = () => {
                         type="text"
                         placeholder="Genero"
                         value={genero}
-                        onChange={(value) => setGenero(value.target.value)}>
+                        onChange={(e) => setGenero(e.target.value)}>
                         <option value="Hombre">Hombre</option>
                         <option value="Mujer">Mujer</option>
                         <option value="Otro">Otro</option>
